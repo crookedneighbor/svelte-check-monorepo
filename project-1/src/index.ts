@@ -1,16 +1,5 @@
-interface MyType {
-    foo: string;
-}
+import { MyType } from './types'
 
-interface OtherType {
-    foo: string;
-    bar: string;
-}
-
-function someOtherFunction(arg: OtherType) {
+export function someFunction(arg: MyType): string {
     return arg.foo;
-}
-
-export function someFunction(arg: MyType) {
-    return someOtherFunction(arg);
 }

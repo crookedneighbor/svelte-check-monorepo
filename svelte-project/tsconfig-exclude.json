@@ -1,0 +1,16 @@
+{
+	"extends": "./tsconfig.json",
+	"exclude": [
+		"../project-1/**",
+		// just in case the path is wonky because of the .svelte-kit/tsconfig location
+		// we'll try these other exclude paths
+		"../../project-1/**",
+		"project-1/**",
+		"@project/first",
+	]
+	// Path aliases are handled by https://svelte.dev/docs/kit/configuration#alias
+	// except $lib which is handled by https://svelte.dev/docs/kit/configuration#files
+	//
+	// If you want to overwrite includes/excludes, make sure to copy over the relevant includes/excludes
+	// from the referenced tsconfig.json - TypeScript does not merge them in
+}
