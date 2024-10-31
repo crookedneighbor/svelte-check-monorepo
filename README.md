@@ -2,18 +2,24 @@
 
 Repo to illustrate how it's not possible to exclude certain files. This example is highly simplistic, just enough complexity to show the problem.
 
-## The Setup
+## Overview
 
 In this monorepo, we have 2 projects. 
 
-* `svelte-project` - a sveltekit project, it has the default `verbatimModuleSyntax` of true.
-* `project-1` - a lib that svelte-project imports. It's tsconfig sets `verbatimModuleSyntax` to false.
+1. `svelte-project` - a sveltekit project, it has the default `verbatimModuleSyntax` of true.
+1. `project-1` - a lib that svelte-project imports. It's tsconfig sets `verbatimModuleSyntax` to false.
 
 The `tsconfig.base.json` in the root of the project details the import alias for `project-1`, so that `svelte-project` can import it as `@project/first` to treat it like an external dependency, but in reality it exists in the same repo.
 
 The `svelte.config.ts` file reads the `tsconfig.base.json`, adjusts the paths so they match the location as the `.svelte-kit/tsconfig.json` will expect them. It then combines the paths from that base config to the one svelte uses.
 
 The `vite.config.ts` file does a similar thing, where it tells vite how to resolve the `@project/first` at it's actual location.
+
+## Set up
+
+1. Ensure you have node >= 18 installed
+1. Clone down this repo
+1. `npm install` in the `svelte-project` directory
 
 ## Running svelte-check
 
