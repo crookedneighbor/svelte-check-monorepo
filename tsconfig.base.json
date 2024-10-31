@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@project/first": [
+        "project-1/src/index.ts"
+      ]
+    },
+    "rootDir": "."
+  }
+}
